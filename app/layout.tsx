@@ -1,5 +1,3 @@
-'use client'
-
 import type React from 'react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -22,7 +20,7 @@ const roboto = Roboto({
   display: 'swap',
 })
 
-],
+export const metadata: Metadata = {
   creator: 'Finca La Pedrera',
   openGraph: {
     type: 'website',
