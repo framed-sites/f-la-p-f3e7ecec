@@ -4,9 +4,6 @@ import { Metadata } from 'next';
 import LuxuryHero from '@/components/luxury-hero';
 import TeamMemberCard from '@/components/team-member-card';
 
-,
-};
-
 export default function TeamPage() {
   return (
     <main>
