@@ -23,7 +23,7 @@ export default function LuxuryHero({
 }: LuxuryHeroProps) {
   return (
     <section
-      className="relative h-[80vh] w-full overflow-hidden bg-black"
+      className="relative h-[80vh] w-full overflow-hidden bg-gray-900"
       aria-label="Luxury Estate Hero Section"
     >
       <div className="absolute inset-0">

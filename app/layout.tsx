@@ -1,3 +1,5 @@
+'use client'
+
 import type React from 'react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -8,19 +10,19 @@ import Footer from '@/components/footer'
 import Script from 'next/script'
 
 const inter = Inter({
-  subsets: ['latin' as const],
+  subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
 })
 
 const roboto = Roboto({
-  subsets: ['latin' as const],
+  subsets: ['latin'],
   variable: '--font-roboto',
-  weight: ['400' as const, '500' as const, '700' as const],
+  weight: ['400', '500', '700'],
   display: 'swap',
 })
 
-export const metadata: Metadata = {
+],
   creator: 'Finca La Pedrera',
   openGraph: {
     type: 'website',
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
     siteName: 'Finca La Pedrera',
     images: [
       {
-        url: 'https://www.fincalapedrera.com/images/hero-banner.jpg',
+        url: 'https://picsum.photos/id/1027/1200/630',
         width: 1200,
         height: 630,
         alt: 'Finca La Pedrera Luxury Estate - Immersive Nature Experience',
@@ -42,7 +44,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Finca La Pedrera | Luxury Estate & Tourism Experience',
     description: 'Experience unparalleled privacy and luxury at Finca La Pedrera, a serene escape immersed in nature with authentic architectural heritage.',
-    images: ['https://www.fincalapedrera.com/images/twitter-preview.jpg'],
+    images: ['https://picsum.photos/id/1027/1200/630'],
   },
   alternates: {
     canonical: 'https://www.fincalapedrera.com',

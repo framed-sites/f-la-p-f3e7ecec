@@ -1,40 +1,37 @@
- 'use client'
+'use client'
 
 import type React from 'react'
 import Image from 'next/image'
 import { useState } from 'react'
 
-interface PortfolioImage {
+interface PortfolioItem {
   id: string
   url: string
   alt: string
 }
 
 interface GalleryGridProps {
-  portfolioImages: PortfolioImage[]
+  portfolioItems: PortfolioItem[]
   layout?: 'grid' | 'masonry'
 }
 
-const lightboxContainerClass = "relative max-h-[90vh] max-w-[90vw]"
-const lightboxImageClass = "h-auto max-h-[85vh] w-auto rounded-lg"
-
 export default function GalleryGrid({
-  portfolioImages,
+  portfolioItems,
   layout = 'grid',
 }: GalleryGridProps) {
-  const [activePortfolioImage, setActivePortfolioImage] = useState<PortfolioImage | null>(null)
+  const [selectedPortfolioItem, setSelectedPortfolioItem] = useState<PortfolioItem | null>(null)
 
   return (
     <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-      {portfolioImages.map((image) => (
+      {portfolioItems.map((item) => (
         <div
-          key={image.id}
+          key={item.id}
           className="group relative overflow-hidden rounded-lg bg-muted"
-          onClick={() => setActivePortfolioImage(image)}
+          onClick={() => setSelectedPortfolioItem(item)}
         >
           <Image
-            src={image.url}
-            alt={image.alt}
+            src={item.url}
+            alt={item.alt}
             width={400}
             height={300}
             className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -45,18 +42,18 @@ export default function GalleryGrid({
       ))}
 
       {/* Lightbox Modal */}
-      {activePortfolioImage && (
+      {selectedPortfolioItem && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
-          onClick={() => setActivePortfolioImage(null)}
+          onClick={() => setSelectedPortfolioItem(null)}
         >
           <div
-            className={lightboxContainerClass}
+            className="portfolio-lightbox-container"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               className="absolute -right-4 -top-4 z-10 rounded-full bg-white/20 p-2 text-white hover:bg-white/40"
-              onClick={() => setActivePortfolioImage(null)}
+              onClick={() => setSelectedPortfolioItem(null)}
               aria-label="Close image"
             >
               <svg
@@ -75,11 +72,11 @@ export default function GalleryGrid({
               </svg>
             </button>
             <Image
-              src={activePortfolioImage.url}
-              alt={activePortfolioImage.alt}
+              src={selectedPortfolioItem.url}
+              alt={selectedPortfolioItem.alt}
               width={1200}
               height={800}
-              className={lightboxImageClass}
+              className="portfolio-lightbox-image"
             />
           </div>
         </div>
