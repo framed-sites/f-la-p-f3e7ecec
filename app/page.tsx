@@ -4,9 +4,6 @@ import { LuxuryHero } from '@/components/luxury-hero';
 import { CTASection } from '@/components/cta-section';
 import { GalleryGrid } from '@/components/gallery-grid';
 
-,
-};
-
 export default function HomePage() {
   return (
     <main>
